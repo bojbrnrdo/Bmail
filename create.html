@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account - Bmail</title>
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div class="auth-container">
+  <div class="auth-card">
+    <h1>Bmail Training</h1>
+    <p>Create a secure password</p>
+
+    <input type="email" id="email" placeholder="Email">
+
+    <input type="password" id="password" placeholder="Password" onkeyup="checkRules()">
+
+    <ul class="rules">
+      <li id="length">❌ At least 8 characters</li>
+      <li id="uppercase">❌ Uppercase letter</li>
+      <li id="number">❌ Number</li>
+      <li id="symbol">❌ Special character</li>
+    </ul>
+
+    <button onclick="createAccount()">Continue</button>
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

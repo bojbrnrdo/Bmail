@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bmail</title>
+
+  <!-- MATERIAL ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="css/mail.css">
+</head>
+<body>
+
+<!-- ===================== TOP BAR ===================== -->
+<div class="topbar">
+
+  <div class="left">
+    <span class="material-icons menu">menu</span>
+    <img src="assets/logo.png" alt="Bmail Logo" class="logo-img">
+    <span class="logo-text">Bmail</span>
+  </div>
+
+  <div class="search">
+    <span class="material-icons">search</span>
+    <input type="text" placeholder="Search mail">
+  </div>
+
+  <div class="right">
+    <span class="material-icons">help_outline</span>
+    <span class="material-icons">settings</span>
+    <div class="avatar">A</div>
+  </div>
+
+</div>
+
+<!-- ===================== MAIN LAYOUT ===================== -->
+<div class="layout">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <div class="sidebar">
+
+    <button class="compose">
+      <span class="material-icons">edit</span>
+      <span>Compose</span>
+    </button>
+
+    <ul>
+
+      <li class="active clickable" data-type="inbox">
+        <span class="material-icons">inbox</span>
+        <span>Inbox</span>
+      </li>
+
+      <li>
+        <span class="material-icons">star</span>
+        <span>Starred</span>
+      </li>
+
+      <li>
+        <span class="material-icons">schedule</span>
+        <span>Snoozed</span>
+      </li>
+
+      <li>
+        <span class="material-icons">send</span>
+        <span>Sent</span>
+      </li>
+
+      <li>
+        <span class="material-icons">description</span>
+        <span>Drafts</span>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- ===================== EMAIL LIST ===================== -->
+  <div class="mail-list">
+
+    <div class="tabs">
+      <span class="active">Primary</span>
+      <span>Promotions</span>
+      <span>Social</span>
+    </div>
+
+    <div id="emails"></div>
+
+  </div>
+
+  <!-- ===================== RIGHT PANEL ===================== -->
+  <div class="mail-view">
+
+    <!-- EMPTY STATE -->
+    <div id="emptyState" class="empty">
+      <h3>No conversation selected</h3>
+      <p>Select an email from the list to view it here.</p>
+    </div>
+
+    <!-- EMAIL CONTENT -->
+    <div id="emailContent" class="hidden email-content-wrapper">
+
+      <div class="email-scroll">
+
+        <!-- SUBJECT -->
+        <h2 id="subject" class="email-title"></h2>
+
+        <!-- EMAIL HEADER -->
+        <div class="email-header">
+
+          <!-- LEFT -->
+          <div class="email-header-left">
+
+            <div class="avatar-circle" id="avatarCircle"></div>
+
+            <div class="sender-info">
+              <div class="sender-name" id="senderName"></div>
+              <div class="sender-email" id="senderEmail"></div>
+              <div class="receiver">to me</div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT -->
+          <div class="email-header-right">
+            <span id="emailTime"></span>
+          </div>
+
+        </div>
+
+        <!-- BODY -->
+        <div id="body" class="email-body"></div>
+
+      </div>
+
+    </div>
+
+    <!-- ACTION BAR -->
+    <div class="actions">
+      <button onclick="markLegit()">Legitimate</button>
+      <button onclick="reportPhishing()">Report Phishing</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ===================== COMPOSE MODAL ===================== -->
+<div id="composeModal" class="compose-modal hidden">
+
+  <div class="compose-box">
+
+    <div class="compose-header">
+      <span>New Message</span>
+      <span class="close-btn disabled">✖</span>
+    </div>
+
+    <input type="text" id="composeTo" readonly>
+    <input type="text" id="composeSubject" readonly>
+
+    <textarea id="composeBody" readonly></textarea>
+
+    <div class="compose-actions">
+      <button onclick="sendEmail()">Send</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ===================== JS ===================== -->
+<script src="js/mail.js"></script>
+
+</body>
+</html>
