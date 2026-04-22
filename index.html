@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bmail</title>
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/login.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="stylesheet" href="assets/css/mail.css" />
+</head>
+<body>
+  <!-- LOGIN / LOCK SCREEN -->
+  <section id="login-screen" class="login-screen">
+    <div class="login-bg"></div>
+
+    <div class="login-panel">
+      <div class="login-brand">
+        <div class="login-brand-mark">B</div>
+        <div>
+          <h1>Bmail</h1>
+          <p>Security Awareness Mail Training</p>
+        </div>
+      </div>
+
+      <div class="login-card">
+        <div class="login-avatar">
+          <img src="https://ui-avatars.com/api/?name=Job+Matthew&background=1a73e8&color=fff&size=128" alt="User" />
+        </div>
+
+        <div class="login-user-meta">
+          <h2>Job Matthew</h2>
+          <p>Simulation User</p>
+        </div>
+
+        <button id="enter-bmail-btn" class="login-enter-btn">Open Bmail</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <div id="app-shell" class="app-shell hidden">
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="icon-btn hamburger-btn" type="button" aria-label="Menu">☰</button>
+
+        <div class="brand-wrap">
+          <div class="gmail-mark">
+            <span class="m-red"></span>
+            <span class="m-blue"></span>
+            <span class="m-yellow"></span>
+            <span class="m-green"></span>
+          </div>
+          <span class="brand-text">Bmail</span>
+        </div>
+      </div>
+
+      <div class="topbar-center">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input id="search-input" type="text" placeholder="Search mail" />
+          <button class="icon-btn filter-btn" type="button" aria-label="Filters">☷</button>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button class="icon-btn top-icon" type="button">❔</button>
+        <button class="icon-btn top-icon" type="button">⚙</button>
+        <button class="icon-btn top-icon" type="button">✦</button>
+        <button class="icon-btn top-icon" type="button">▦</button>
+        <button class="profile-btn" type="button">
+          <img src="https://ui-avatars.com/api/?name=Job+Matthew&background=5b4db1&color=fff&size=96" alt="Profile" />
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main-layout">
+      <!-- SIDEBAR -->
+      <aside class="left-sidebar">
+        <button id="compose-btn" class="compose-btn" type="button">
+          <span class="compose-pencil">✎</span>
+          <span>Compose</span>
+        </button>
+
+        <nav class="mail-nav">
+          <button class="mail-nav-item active" type="button">
+            <span class="mail-nav-icon">▣</span>
+            <span>Inbox</span>
+            <strong id="inbox-count">0</strong>
+          </button>
+
+          <button class="mail-nav-item" type="button">
+            <span class="mail-nav-icon">☆</span>
+            <span>Starred</span>
+          </button>
+
+          <button class="mail-nav-item" type="button">
+            <span class="mail-nav-icon">◔</span>
+            <span>Snoozed</span>
+          </button>
+
+          <button class="mail-nav-item" type="button">
+            <span class="mail-nav-icon">➤</span>
+            <span>Sent</span>
+          </button>
+
+          <button class="mail-nav-item" type="button">
+            <span class="mail-nav-icon">📄</span>
+            <span>Drafts</span>
+            <strong>5</strong>
+          </button>
+
+          <button class="mail-nav-item" type="button">
+            <span class="mail-nav-icon">🧾</span>
+            <span>Purchases</span>
+            <strong>39</strong>
+          </button>
+
+          <button class="mail-nav-item" type="button">
+            <span class="mail-nav-icon">⌄</span>
+            <span>More</span>
+          </button>
+        </nav>
+
+        <div class="labels-section">
+          <div class="labels-head">
+            <span>Labels</span>
+            <button class="icon-btn mini-icon" type="button">＋</button>
+          </div>
+
+          <div class="label-row"><span class="label-dot yellow"></span><span>Important</span></div>
+          <div class="label-row"><span class="label-dot blue"></span><span>HR</span></div>
+          <div class="label-row"><span class="label-dot red"></span><span>IT Support</span></div>
+          <div class="label-row"><span class="label-dot green"></span><span>Operations</span></div>
+          <div class="label-row"><span class="label-dot purple"></span><span>Security</span></div>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button class="upgrade-btn" type="button">
+            <span>①</span>
+            <span>Upgrade</span>
+            <span>➜</span>
+          </button>
+
+          <div class="training-card">
+            <div class="training-card-head">
+              <span>Simulation Progress</span>
+            </div>
+            <div class="training-stats">
+              <div><small>Correct</small><strong id="score">0</strong></div>
+              <div><small>Mistakes</small><strong id="mistakes">0</strong></div>
+            </div>
+            <div class="progress-track">
+              <div id="progress-bar" class="progress-fill"></div>
+            </div>
+            <div id="progress-text" class="progress-text">0 of 0 reviewed</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CENTER -->
+      <section class="mail-center">
+        <div class="mail-toolbar">
+          <div class="mail-toolbar-left">
+            <button class="toolbar-btn" type="button">☐</button>
+            <button class="toolbar-btn" type="button">↻</button>
+            <button class="toolbar-btn" type="button">⋮</button>
+          </div>
+
+          <div class="mail-toolbar-right">
+            <span id="mail-page-meta">0 visible</span>
+            <button class="toolbar-btn" type="button">‹</button>
+            <button class="toolbar-btn" type="button">›</button>
+          </div>
+        </div>
+
+        <div class="category-tabs">
+          <button class="category-tab active" type="button">
+            <span>▣</span>
+            <div>
+              <strong>Primary</strong>
+            </div>
+          </button>
+
+          <button class="category-tab" type="button">
+            <span>🏷</span>
+            <div>
+              <strong>Promotions</strong>
+              <small>25 new</small>
+            </div>
+          </button>
+
+          <button class="category-tab" type="button">
+            <span>👥</span>
+            <div>
+              <strong>Social</strong>
+            </div>
+          </button>
+
+          <button class="category-tab" type="button">
+            <span>ⓘ</span>
+            <div>
+              <strong>Updates</strong>
+              <small>31 new</small>
+            </div>
+          </button>
+        </div>
+
+        <div id="inbox-list" class="mail-list"></div>
+
+        <div class="mail-list-footer">
+          <span id="mail-usage-text">0 reviewed</span>
+        </div>
+      </section>
+
+      <!-- RIGHT VIEWER -->
+      <section class="viewer-panel">
+        <div class="viewer-toolbar">
+          <div class="viewer-toolbar-left">
+            <button id="back-to-list-btn" class="toolbar-btn mobile-only" type="button">←</button>
+            <button class="toolbar-btn" type="button">🗑</button>
+            <button class="toolbar-btn" type="button">✉</button>
+            <button class="toolbar-btn" type="button">⏰</button>
+            <button class="toolbar-btn" type="button">🏷</button>
+            <button class="toolbar-btn" type="button">⋮</button>
+          </div>
+          <div class="viewer-toolbar-right">
+            <span id="viewer-position">0 of 0</span>
+          </div>
+        </div>
+
+        <div class="viewer-content">
+          <div class="message-title-row">
+            <h1 id="email-subject" class="message-subject">Select an email</h1>
+            <span id="message-tag" class="message-tag">Inbox</span>
+            <span id="result-status-pill" class="result-status-pill hidden"></span>
+          </div>
+
+          <div class="message-meta-row">
+            <div id="sender-avatar" class="sender-avatar">B</div>
+
+            <div class="sender-meta">
+              <div class="sender-main-line">
+                <span id="sender-name" class="sender-name">Bmail Training</span>
+                <span id="email-sender" class="sender-email">&lt;simulation@bmail.local&gt;</span>
+              </div>
+              <div class="sender-sub-line">
+                <span>to me</span>
+              </div>
+            </div>
+
+            <div class="message-time-wrap">
+              <span id="message-time" class="message-time">—</span>
+            </div>
+          </div>
+
+          <div id="email-body" class="message-body">
+            Open an email and decide whether it is legitimate or phishing.
+          </div>
+        </div>
+
+        <div class="decision-panel">
+          <button id="btn-legit" class="decision-btn legit-btn" type="button">✔ Legitimate</button>
+          <button id="btn-phish" class="decision-btn phish-btn" type="button">⚠ Report Phishing</button>
+          <button id="btn-next" class="next-btn" type="button">Next Email</button>
+        </div>
+      </section>
+
+      <!-- RIGHT RAIL -->
+      <aside class="right-rail">
+        <button class="rail-btn" type="button">🗓</button>
+        <button class="rail-btn" type="button">💡</button>
+        <button class="rail-btn" type="button">✅</button>
+        <button class="rail-btn" type="button">👤</button>
+        <div class="rail-spacer"></div>
+        <button class="rail-btn plus" type="button">＋</button>
+      </aside>
+    </main>
+  </div>
+
+  <!-- COMPOSE MODAL -->
+  <div id="compose-modal" class="compose-modal hidden">
+    <div class="compose-window">
+      <div class="compose-header">
+        <span>New Message</span>
+        <button id="close-compose-btn" class="icon-btn" type="button">✕</button>
+      </div>
+
+      <div class="compose-fields">
+        <input id="compose-to" type="text" value="cyberops@bounty.com.ph" readonly />
+        <input id="compose-subject" type="text" placeholder="Subject" />
+        <textarea id="compose-body" placeholder="Message"></textarea>
+      </div>
+
+      <div class="compose-footer">
+        <button id="send-compose-btn" class="send-btn" type="button">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHISHING PAGE MODAL -->
+  <div id="phish-modal" class="phish-modal hidden">
+    <div class="phish-card">
+      <div class="phish-top">
+        <span class="phish-domain">account-security-verification.example-login.net</span>
+        <button id="close-phish-modal-btn" class="icon-btn" type="button">✕</button>
+      </div>
+
+      <div class="phish-body">
+        <div class="fake-site-logo">Microsoft 365</div>
+        <h2>Sign in to continue</h2>
+        <p>Your session expired. Please sign in again to continue securely.</p>
+
+        <label>Email</label>
+        <input type="text" value="employee@bountyfresh.com.ph" readonly />
+
+        <label>Password</label>
+        <input type="password" value="password123" readonly />
+
+        <button class="browser-signin-btn" type="button">Sign In</button>
+
+        <div class="browser-warning-note">
+          This is a simulated phishing landing page for training.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
