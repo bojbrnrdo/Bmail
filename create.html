@@ -3,30 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <title>Create Account - Bmail</title>
-  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/create.css">
 </head>
 <body>
 
-<div class="auth-container">
-  <div class="auth-card">
-    <h1>Bmail Training</h1>
-    <p>Create a secure password</p>
+<div class="container">
 
-    <input type="email" id="email" placeholder="Email">
+  <div class="card">
 
-    <input type="password" id="password" placeholder="Password" onkeyup="checkRules()">
+    <!-- LEFT SIDE -->
+    <div class="left">
+      <img src="assets/logo.png" class="logo">
 
-    <ul class="rules">
-      <li id="length">❌ At least 8 characters</li>
-      <li id="uppercase">❌ Uppercase letter</li>
-      <li id="number">❌ Number</li>
-      <li id="symbol">❌ Special character</li>
-    </ul>
+      <h1>Create a strong password</h1>
 
-    <button onclick="createAccount()">Continue</button>
+      <p>
+        Create a strong password with a mix of letters,
+        numbers and symbols
+      </p>
+
+      <!-- 🛡️ ASSISTANT CHARACTER -->
+      <div id="assistant" class="assistant hidden">
+        <img src="assets/assistant.png" class="assistant-img">
+
+        <div id="assistantBubble" class="assistant-bubble">
+          Try creating a strong password to stay secure.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+      <!-- PASSWORD -->
+      <input type="password" id="password" placeholder="Password">
+
+      <!-- STRENGTH METER -->
+      <div id="strengthContainer" class="strength-wrapper hidden">
+        <div id="strengthBar" class="strength-bar"></div>
+        <span id="strengthText" class="strength-text"></span>
+      </div>
+
+      <!-- VALIDATION MESSAGE -->
+      <div id="suggestions" class="suggestions hidden"></div>
+
+      <!-- CONFIRM -->
+      <input type="password" id="confirm" placeholder="Confirm">
+
+      <!-- SHOW PASSWORD -->
+      <label class="show-pass">
+        <input type="checkbox" onclick="togglePassword()">
+        Show password
+      </label>
+
+      <!-- ACTION -->
+      <div class="actions">
+        <button onclick="validatePassword()">Next</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>English (United States)</span>
+
+    <div>
+      <a href="#">Help</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- 🔥 LOADING SCREEN -->
+<div id="loadingScreen" class="loading-screen hidden">
+  <div class="loader-box">
+    <div class="spinner"></div>
+    <p>Setting up your account...</p>
   </div>
 </div>
 
-<script src="js/auth.js"></script>
+<script src="js/create.js"></script>
 </body>
 </html>
