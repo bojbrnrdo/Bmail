@@ -1,0 +1,282 @@
+/* ===================== GLOBAL ===================== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f3f4;
+}
+
+/* ===================== CONTAINER ===================== */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+/* ===================== CARD ===================== */
+.card {
+  width: 950px;
+  height: 480px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  padding: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ===================== LEFT ===================== */
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 40px;
+  margin-bottom: 20px;
+}
+
+.left h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.left p {
+  color: #5f6368;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ===================== ASSISTANT ===================== */
+.assistant {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.assistant-img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+.assistant-bubble {
+  background: #f1f3f4;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 14px;
+  color: #202124;
+  max-width: 260px;
+  position: relative;
+}
+
+.assistant-bubble::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 20px;
+  width: 12px;
+  height: 12px;
+  background: #f1f3f4;
+  transform: rotate(45deg);
+}
+
+/* ===================== RIGHT ===================== */
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ===================== INPUT ===================== */
+.right input {
+  width: 100%;
+  height: 48px;
+  padding: 14px;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  outline: none;
+  box-sizing: border-box;
+  line-height: 1.5;
+  transition: border 0.2s ease;
+}
+
+.right input[type="text"],
+.right input[type="password"] {
+  width: 100%;
+  height: 48px;
+  padding: 14px;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+.right input:focus {
+  border-color: #1a73e8;
+}
+
+/* ===================== PASSWORD STRENGTH ===================== */
+.strength-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.strength-bar {
+  height: 6px;
+  width: 140px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.strength-bar::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  transition: all 0.3s ease;
+}
+
+.strength-weak::after {
+  width: 33%;
+  background: #ea4335;
+}
+
+.strength-medium::after {
+  width: 66%;
+  background: #fbbc04;
+}
+
+.strength-strong::after {
+  width: 100%;
+  background: #34a853;
+}
+
+.strength-text {
+  font-size: 12px;
+  color: #5f6368;
+}
+
+/* ===================== VALIDATION ===================== */
+.suggestions {
+  font-size: 13px;
+  color: #d93025;
+  margin-top: 4px;
+}
+
+/* ===================== SHOW PASSWORD ===================== */
+.show-pass {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #5f6368;
+  margin-top: 5px;
+}
+
+.show-pass input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #1a73e8;
+  cursor: pointer;
+}
+
+/* ===================== BUTTON ===================== */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.actions button {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.actions button:hover {
+  background: #1669c1;
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+  width: 950px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #5f6368;
+}
+
+.footer a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #5f6368;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===================== LOADING SCREEN ===================== */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* CENTER BOX */
+.loader-box {
+  text-align: center;
+}
+
+/* SPINNER */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid #1a73e8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+/* SPIN ANIMATION */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* LOADING TEXT */
+.loader-box p {
+  font-size: 14px;
+  color: #5f6368;
+}
+
+/* ===================== UTIL ===================== */
+.hidden {
+  display: none;
+}
